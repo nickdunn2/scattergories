@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core'
 
 import { AppComponent } from './app.component'
 import { LetterComponent } from './letter/letter.component'
+import { CountdownComponent } from './countdown/countdown.component'
 
 @NgModule({
   declarations: [
     AppComponent,
+    CountdownComponent,
     LetterComponent
   ],
   imports: [

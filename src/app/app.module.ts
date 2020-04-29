@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core'
 import { AppComponent } from './app.component'
 import { LetterComponent } from './letter/letter.component'
 import { CountdownComponent } from './countdown/countdown.component'
+import { TimeInputComponent } from './time-input/time-input.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CountdownComponent,
-    LetterComponent
+    LetterComponent,
+    TimeInputComponent
   ],
   imports: [
     BrowserModule

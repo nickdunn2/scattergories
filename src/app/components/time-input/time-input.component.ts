@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { InputToCountdownDirective } from 'src/app/directives/input-to-countdown/input-to-countdown.directive'
 
 @Component({
     selector: 'scatt-time-input',
@@ -6,5 +7,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimeInputComponent {
-    
+    constructor(public timeInputDirective: InputToCountdownDirective) {}
 }

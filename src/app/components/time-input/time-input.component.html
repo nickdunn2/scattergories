@@ -1,1 +1,24 @@
-<div>time input component</div>
+<label>
+    Minutes
+    <input
+        #minutes
+        type="number"
+        min="0"
+        max="59"
+        placeholder="minutes"
+        [value]="timeInputDirective.getMinutes()"
+        (change)="timeInputDirective.updateTime(minutes.value, 'minutes')"
+    />
+</label>
+<label>
+    Seconds
+    <input
+        #seconds
+        type="number"
+        min="0"
+        max="59"
+        placeholder="seconds"
+        [value]="timeInputDirective.getSeconds()"
+        (change)="timeInputDirective.updateTime(seconds.value, 'seconds')"
+    />
+</label>

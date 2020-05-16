@@ -1,24 +1,23 @@
 import { Directive } from '@angular/core'
-import { BehaviorSubject, interval } from 'rxjs'
+import { BehaviorSubject, interval, Subject } from 'rxjs'
 import { ICountdown, ICommand } from './input-to-countdown.interfaces'
-import { calculateSeconds, mapTotalSecondsToCountdown } from './input-to-countdown.utility'
-import { pluck, map, takeWhile, tap, filter, startWith } from 'rxjs/operators'
+import { calculateSeconds, mapTotalSecondsToCountdown, INITIAL_TIME } from './input-to-countdown.utility'
+import { pluck, map, takeWhile, tap, filter, startWith, takeUntil } from 'rxjs/operators'
 
 @Directive({
     selector: '[scattInputToCountdown]'
 })
 export class InputToCountdownDirective {
-    private timeSource = new BehaviorSubject<ICountdown>({
-        seconds: 0,
-        minutes: 2,
-        totalSeconds: 120
-    })
-
+    private timeSource = new BehaviorSubject<ICountdown>(INITIAL_TIME)
     public time$ = this.timeSource.asObservable()
     public totalSeconds$ = this.time$.pipe(
         pluck('totalSeconds'),
         startWith(this.timeSource.value.totalSeconds)
     )
+
+    private stopEventSource = new Subject<void>()
+    private stopEvent$ = this.stopEventSource.asObservable()
+    public emitStopEvent = () => this.stopEventSource.next()
 
     public getSeconds = () => this.timeSource.value.seconds
     public getMinutes = () => this.timeSource.value.minutes
@@ -46,8 +45,10 @@ export class InputToCountdownDirective {
         interval(1000).pipe(
             map(n => initial - (n + 1)),
             filter(num => num >= 0),
-            map(mapTotalSecondsToCountdown)
-            // takeWhile(countdown => countdown.totalSeconds >= 0)
+            map(mapTotalSecondsToCountdown),
+            takeUntil(this.stopEvent$)
         ).subscribe(updatedCountdown => this.timeSource.next(updatedCountdown))
     }
+
+    public resetTimer = () => this.timeSource.next(INITIAL_TIME)
 }

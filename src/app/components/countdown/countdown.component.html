@@ -6,10 +6,10 @@
     <button class="buttons__start" type="button" (click)="directive.startTimer(directive.getTotalSeconds())">
         Start
     </button>
-    <button #pause class="buttons__pause" type="button">
+    <button class="buttons__pause" type="button" (click)="directive.emitStopEvent()">
         Pause
     </button>
-    <button #reset class="buttons__pause" type="button">
+    <button class="buttons__pause" type="button" (click)="directive.resetTimer()">
         Reset
     </button>
 </div>

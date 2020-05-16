@@ -1,5 +1,11 @@
 import { ICountdown } from './input-to-countdown.interfaces'
 
+export const INITIAL_TIME: ICountdown = {
+    seconds: 0,
+    minutes: 2,
+    totalSeconds: 120
+}
+
 export const calculateSeconds = (countdown: ICountdown): number => {
     console.log('calculating --', countdown)
     return countdown.seconds + (countdown.minutes * 60)

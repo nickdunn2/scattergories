@@ -1,1 +1,15 @@
-<div>countdown component</div>
+<div class="clock" *ngIf="directive.totalSeconds$ | async as clock">
+    {{ clock | scattTimeFormat }}
+</div>
+
+<div class="buttons">
+    <button class="buttons__start" type="button" (click)="directive.startTimer(directive.getTotalSeconds())">
+        Start
+    </button>
+    <button #pause class="buttons__pause" type="button">
+        Pause
+    </button>
+    <button #reset class="buttons__pause" type="button">
+        Reset
+    </button>
+</div>

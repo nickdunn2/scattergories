@@ -6,8 +6,8 @@
         min="0"
         max="59"
         placeholder="minutes"
-        [value]="timeInputDirective.getMinutes()"
-        (change)="timeInputDirective.updateTime(minutes.value, 'minutes')"
+        [value]="directive.getMinutes()"
+        (change)="directive.updateTime(minutes.value, 'minutes')"
     />
 </label>
 <label>
@@ -18,7 +18,7 @@
         min="0"
         max="59"
         placeholder="seconds"
-        [value]="timeInputDirective.getSeconds()"
-        (change)="timeInputDirective.updateTime(seconds.value, 'seconds')"
+        [value]="directive.getSeconds()"
+        (change)="directive.updateTime(seconds.value, 'seconds')"
     />
 </label>

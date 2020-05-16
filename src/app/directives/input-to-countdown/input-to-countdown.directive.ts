@@ -10,7 +10,7 @@ export class InputToCountdownDirective {
     private timeSource = new BehaviorSubject<ICountdown>({
         seconds: 0,
         minutes: 0,
-        totalTime: 0
+        totalSeconds: 0
     })
 
     public time$ = this.timeSource.asObservable()
@@ -26,11 +26,12 @@ export class InputToCountdownDirective {
             updatedCountdown.minutes = valToUse
         }
 
-        updatedCountdown.totalTime = calculateSeconds(updatedCountdown)
+        updatedCountdown.totalSeconds = calculateSeconds(updatedCountdown)
 
         this.timeSource.next(updatedCountdown)
     }
 
     public getSeconds = () => this.timeSource.value.seconds
     public getMinutes = () => this.timeSource.value.minutes
+    public getTotalSeconds = () => this.timeSource.value.totalSeconds
 }

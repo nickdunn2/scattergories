@@ -7,5 +7,5 @@ import { InputToCountdownDirective } from 'src/app/directives/input-to-countdown
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimeInputComponent {
-    constructor(public timeInputDirective: InputToCountdownDirective) {}
+    constructor(public directive: InputToCountdownDirective) {}
 }

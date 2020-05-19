@@ -3,13 +3,13 @@
 </div>
 
 <div class="buttons">
-    <button class="buttons__start" type="button" (click)="directive.startTimer(directive.getTotalSeconds())">
-        Start
+    <button class="btn buttons__start" type="button" (click)="directive.startTimer(directive.getTotalSeconds())">
+        <i class="fa fa-play"></i> 
     </button>
-    <button class="buttons__pause" type="button" (click)="directive.emitStopEvent()">
-        Pause
+    <button class="btn buttons__pause" type="button" (click)="directive.emitStopEvent()">
+        <i class="fa fa-pause"></i>
     </button>
-    <button class="buttons__pause" type="button" (click)="directive.resetTimer()">
-        Reset
+    <button class="btn buttons__reset" type="button" (click)="directive.resetTimer()">
+        <i class="fa fa-stop"></i>
     </button>
 </div>

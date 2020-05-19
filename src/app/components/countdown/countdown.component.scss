@@ -1,0 +1,18 @@
+
+.buttons {
+    .btn {
+        cursor: pointer;
+    }
+
+    &__start {
+        color: green;
+    }
+
+    &__pause {
+        color: blue;
+    }
+
+    &__reset {
+        color: red;
+    }
+}

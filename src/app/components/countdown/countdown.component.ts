@@ -6,6 +6,7 @@ import { InputToCountdownDirective } from 'src/app/directives/input-to-countdown
 @Component({
     selector: 'scatt-countdown',
     templateUrl: './countdown.component.html',
+    styleUrls: ['./countdown.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountdownComponent {
